@@ -1,40 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hidden Bug</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hidden Bug</title>
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="world">
+<canvas id="game"></canvas>
 
-    <!-- Sky -->
-    <div class="sky">
-        <div class="cloud c1"></div>
-        <div class="cloud c2"></div>
-        <div class="cloud c3"></div>
-    </div>
-
-    <!-- Mountains -->
-    <div class="hill hill1"></div>
-    <div class="hill hill2"></div>
-
-    <!-- Grass -->
-    <div id="grass"></div>
-
-    <!-- Bug -->
-    <div id="bug"></div>
-
-    <!-- HUD -->
-    <div id="hud">
-        <h1>The Hidden Bug</h1>
-        <p>0</p>
-    </div>
-
+<div id="hud">
+    <div class="title">The Hidden Bug</div>
+    <div class="score">Caught: <span id="score">0</span></div>
 </div>
 
 <script src="script.js"></script>
