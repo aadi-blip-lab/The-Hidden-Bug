@@ -340,3 +340,46 @@ function animate() {
 }
 
 animate();
+
+const feedbackButton =
+document.getElementById("feedbackButton");
+
+const feedbackPanel =
+document.getElementById("feedbackPanel");
+
+feedbackButton.onclick = () => {
+
+    feedbackPanel.style.display =
+        feedbackPanel.style.display === "block"
+        ? "none"
+        : "block";
+
+};
+
+document
+.getElementById("sendFeedback")
+.onclick = () => {
+
+    const message =
+        document
+        .getElementById("feedbackText")
+        .value
+        .trim();
+
+    if(message===""){
+
+        alert("Please write something.");
+
+        return;
+
+    }
+
+    alert("Feedback system will be connected soon.");
+
+    document
+        .getElementById("feedbackText")
+        .value="";
+
+    feedbackPanel.style.display="none";
+
+};
