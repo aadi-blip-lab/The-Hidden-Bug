@@ -1,18 +1,136 @@
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Hidden Bug</title>
-<link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>The Hidden Bug</title>
+
+    <meta name="description"
+          content="A peaceful minimalist game where you quietly search for a hidden bug.">
+
+    <meta name="theme-color"
+          content="#eef5ed">
+
+    <link rel="icon"
+          href="data:,">
+
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
+
 <body>
-<canvas id="game"></canvas>
-<div id="hud">
-<h1>The Hidden Bug</h1>
-<div>Caught <span id="score">0</span></div>
-<div>Best <span id="best">0</span></div>
-</div>
-<script src="script.js"></script>
+
+    <!-- Canvas -->
+
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+
+    <div id="hud">
+
+        <div id="title">
+            The Hidden Bug
+        </div>
+
+        <div id="stats">
+
+            <div class="item">
+                <span class="label">Caught</span>
+                <span id="score">0</span>
+            </div>
+
+            <div class="item">
+                <span class="label">Best</span>
+                <span id="best">0</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Future Ad Area -->
+
+    <div id="topAd" class="ad-space"></div>
+
+    <div id="leftAd" class="ad-space"></div>
+
+    <div id="rightAd" class="ad-space"></div>
+
+    <div id="bottomAd" class="ad-space"></div>
+
+    <!-- Loading -->
+
+    <div id="loading">
+
+        <div class="loader">
+
+            <div class="dot"></div>
+
+        </div>
+
+    </div>
+
+    <!-- Hidden SVG Assets -->
+
+    <svg width="0"
+         height="0"
+         style="position:absolute;visibility:hidden;">
+
+        <defs>
+
+            <g id="bugSVG">
+
+                <ellipse
+                    cx="-3"
+                    cy="-2"
+                    rx="3"
+                    ry="2"
+                    fill="#ffffff"
+                    opacity=".85" />
+
+                <ellipse
+                    cx="3"
+                    cy="-2"
+                    rx="3"
+                    ry="2"
+                    fill="#ffffff"
+                    opacity=".85" />
+
+                <ellipse
+                    cx="0"
+                    cy="1"
+                    rx="2.4"
+                    ry="5"
+                    fill="#222222" />
+
+                <circle
+                    cx="0"
+                    cy="-5"
+                    r="1.5"
+                    fill="#222222" />
+
+            </g>
+
+        </defs>
+
+    </svg>
+
+    <noscript>
+
+        JavaScript is required to play this game.
+
+    </noscript>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
+```
