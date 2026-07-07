@@ -31,7 +31,7 @@ const bug = {
     targetY: canvas.height * 0.65,
     vx: 0,
     vy: 0,
-    radius: 5
+    radius: 8
 };
 
 const grass = [];
@@ -69,11 +69,17 @@ canvas.addEventListener("pointermove", e => {
 
     const d = Math.hypot(e.clientX - bug.x, e.clientY - bug.y);
 
-    if (d < 70) {
+if (d < 90) {
 
-        randomBugTarget();
+    const angle = Math.atan2(
+        bug.y - e.clientY,
+        bug.x - e.clientX
+    );
 
-    }
+    bug.targetX = bug.x + Math.cos(angle) * 180;
+    bug.targetY = bug.y + Math.sin(angle) * 180;
+
+}
 
 });
 
@@ -221,25 +227,73 @@ function drawGrass() {
 
 function drawBug() {
 
-    ctx.save();
+    const flap = Math.sin(time * 12) * 0.8;
 
-    ctx.translate(bug.x, bug.y);
-
-    ctx.fillStyle = "#222";
-
+    // Shadow
+    ctx.fillStyle = "rgba(0,0,0,0.18)";
     ctx.beginPath();
-    ctx.ellipse(0, 0, 4, 6, 0, 0, Math.PI * 2);
+    ctx.ellipse(
+        bug.x,
+        bug.y + 8,
+        6,
+        2.5,
+        0,
+        0,
+        Math.PI * 2
+    );
     ctx.fill();
 
-    ctx.fillStyle = "rgba(255,255,255,.8)";
-
+    // Left Wing
+    ctx.fillStyle = "rgba(255,255,255,0.85)";
     ctx.beginPath();
-    ctx.ellipse(-3, -2, 3, 2, 0, 0, Math.PI * 2);
-    ctx.ellipse(3, -2, 3, 2, 0, 0, Math.PI * 2);
-
+    ctx.ellipse(
+        bug.x - 5,
+        bug.y - 2,
+        4,
+        2 + flap,
+        -0.4,
+        0,
+        Math.PI * 2
+    );
     ctx.fill();
 
-    ctx.restore();
+    // Right Wing
+    ctx.beginPath();
+    ctx.ellipse(
+        bug.x + 5,
+        bug.y - 2,
+        4,
+        2 + flap,
+        0.4,
+        0,
+        Math.PI * 2
+    );
+    ctx.fill();
+
+    // Body
+    ctx.fillStyle = "#202020";
+    ctx.beginPath();
+    ctx.ellipse(
+        bug.x,
+        bug.y,
+        4,
+        7,
+        0,
+        0,
+        Math.PI * 2
+    );
+    ctx.fill();
+
+    // Head
+    ctx.beginPath();
+    ctx.arc(
+        bug.x,
+        bug.y - 7,
+        2,
+        0,
+        Math.PI * 2
+    );
+    ctx.fill();
 
 }
 
@@ -256,6 +310,28 @@ function animate() {
     drawGrass();
 
     updateBug();
+
+   bug.y += Math.sin(time * 2) * 0.25;
+
+   if (Math.random() < 0.002) {
+
+    ctx.fillStyle = "rgba(120,150,90,0.6)";
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height * 0.6,
+        4,
+        2,
+        Math.random(),
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+}
 
     drawBug();
 
