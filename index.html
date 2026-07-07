@@ -1,23 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Hidden Bug</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+    <title>The Hidden Bug</title>
+    <meta name="description" content="A peaceful minimalist game. Can you find the hidden bug?">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<canvas id="game"></canvas>
+    <!-- Background Canvas -->
+    <canvas id="gameCanvas"></canvas>
 
-<div id="hud">
-    <div class="title">The Hidden Bug</div>
-    <div class="score">Caught: <span id="score">0</span></div>
-</div>
+    <!-- HUD -->
+    <div id="hud">
 
-<script src="script.js"></script>
+        <div id="logo">
+            The Hidden Bug
+        </div>
+
+        <div class="stats">
+
+            <div>
+                Caught
+                <span id="score">0</span>
+            </div>
+
+            <div>
+                Best
+                <span id="best">0</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Future Ad Area (disabled for now) -->
+    <div id="topAd" class="ad-space"></div>
+
+    <!-- Hidden SVG assets -->
+    <svg width="0" height="0" style="position:absolute">
+
+        <defs>
+
+            <!-- Bug -->
+            <g id="bugShape">
+
+                <!-- Wings -->
+                <ellipse cx="-3"
+                         cy="-2"
+                         rx="3"
+                         ry="2"
+                         fill="#ffffff"
+                         opacity="0.85"/>
+
+                <ellipse cx="3"
+                         cy="-2"
+                         rx="3"
+                         ry="2"
+                         fill="#ffffff"
+                         opacity="0.85"/>
+
+                <!-- Body -->
+                <ellipse cx="0"
+                         cy="0"
+                         rx="2.5"
+                         ry="5"
+                         fill="#202020"/>
+
+                <!-- Head -->
+                <circle cx="0"
+                        cy="-5"
+                        r="1.5"
+                        fill="#202020"/>
+
+            </g>
+
+        </defs>
+
+    </svg>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
