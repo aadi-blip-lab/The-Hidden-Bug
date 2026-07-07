@@ -1,0 +1,1 @@
+console.log('Hidden Bug base script placeholder');
